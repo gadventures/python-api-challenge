@@ -45,7 +45,7 @@ scope of the challenge requirements, we're happy.
 ## Goal
 
 We'd like to get a sense of how you work, specifically within areas that are
-unexplored territory, and if you are able to full-fill the requirements scoped
+unexplored territory, and if you are able to fulfill the requirements scoped
 for a project.
 
 We're looking for code that is well structured, documented, and testable.
