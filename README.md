@@ -35,9 +35,8 @@ JSON (Built-in to Django REST Framework)
 Once you have constructed the API to display these trips, you'll create a page
 that displays the list of Trips, as per the response of the API.
 
-How you display these trips is up to you. You can use Javascript to make an
-_AJAX_ call, or you can do something else. Feel like displaying it on an Android
-application instead? That's fine, as long as you built the API for it :)
+Stylistically, how you display these trips is up to you. Data-wise, as long as the data is coming from the API view you've built, we
+are agnostic as to what technology you use to query that view. Generally, it'd be in Javascript using an _AJAX_ call, or you can do something else. Feel like displaying it on an Android application instead? That's fine, as long as you built the API for it :)
 
 ... And that's it! Feel free to try new technologies, as long you're within the
 scope of the challenge requirements, we're happy.
