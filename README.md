@@ -1,4 +1,4 @@
-# Python Data Challenge
+# Python API Challenge
 
 Thank you for your interest in joining G Adventures. This challenge will allow
 us to further evaluate where you may potentially fit from a technical
