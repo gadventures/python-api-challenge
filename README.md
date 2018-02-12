@@ -111,11 +111,11 @@ We've provided some scaffolding to save you time. You'll want to clone the fork
 you made on Github. The url you fork is dependent on your username, but it'd
 look something like this:
 
-    git clone https://github.com/{YOUR USERNAME}/apichallenge.git
+    git clone https://github.com/{YOUR USERNAME}/python-api-challenge.git
 
 Once downloaded, you'll want to use `pip` to install the project requirements.
 
-    cd ./apichallenge
+    cd ./python-api-challenge
     pip install -r requirements.txt
 
 Once installed, you can run the Django project like so:
