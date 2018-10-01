@@ -28,13 +28,15 @@ For this project, you'll build a script which consumes data from a local API
 (provided). Your script will transform this data in various ways (described
 below), and be output as a CSV.
 
+Upon completion, we'll have a retrospective on the work.
+
 ### Local API
 
 Provided within this project is a local API, which uses [Django REST Framework](http://www.django-rest-framework.org/)
 to provide a simple, standards-compliant API. Below, within the `Getting
 Started` section, you'll find instructions on how to run the API server.
 
-Once running, your only task for the server, is to load data into the API. We've provided a
+Once running, your only task for the server portion, is to load data into the API. We've provided a
 `departures.json` file, which you should load into the server using [Django Data
 Migrations](https://docs.djangoproject.com/en/2.0/topics/migrations/#data-migrations).
 You will need to make a new *empty* migration as per the documentation, and
@@ -43,7 +45,7 @@ Model](https://docs.djangoproject.com/en/2.0/ref/models/instances/#creating-obje
 
 After this data is loaded, you should be able to view it all at
 `http://localhost:8000/departures`, assuming you're running the local API
-server.
+server with a standard `runserver` command.
 
 ### Data Collection Script
 
@@ -54,7 +56,10 @@ multi-page listing of trips, operating on various dates.
 The script will be expected to query for `/departures`, and iterate over every
 page, collecting all `departures` referenced from the API.
 
-To iterate over a page, the script simply needs to follow the `next` links,
+You can do this in any style you want, synchronous or asynchronous, functional or object oriented.
+We want you to bring _your style_ (flair!) here.
+
+To iterate over a page, the script needs to follow the `next` links,
 which look like so in the API response:
 
 ```
@@ -96,7 +101,9 @@ We'd like to get a sense of how you work, specifically within areas that are
 unexplored territory, and if you are able to fulfill all the requirements scoped
 for a task.
 
-We're looking for code that is well structured, documented, and testable.
+We're looking for code that is well structured, documented, and testable. We don't expect
+you to write unit tests, but we do expect you to be able to explain how you'd approach them
+when we discuss .
 
 Please provide two or so paragraphs within the `README` of how you went about
 completing the challenge.
