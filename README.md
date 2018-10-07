@@ -147,3 +147,10 @@ questions will not hurt your chances.
 
 We're excited for the opportunity to work with you. We look forward to seeing
 what you create.
+
+
+## Applicant Response
+
+The first step to solving this problem was to insert the data in the included json file into the database. To do this, I wrote a two python functions to be called during migration that would open the file, format the data into database objects, and then insert teh objects in to the database with a single query.
+
+Second was the actual data collection script. I approached this attempting to write as straight forward a response as possible. It's a synchronous script that iterates over the pages returned by the /departures/ endpoint using a for loop. The number of pages to iterated is calculated using the count parameter. I considered using a while loop conditional on a none-null "next" url, however I decided that using a self-terminating loop was safer in the event of malformed data. Preserving this philosophy, I included a non-null "next" url requirement for each iteration of the loop, again in case of a malformed response. I separated the functionality into small component functions to aid in both readibility, and testability. When doing so didn't require too much of a time investment, I generalised the functionality for re-use.
