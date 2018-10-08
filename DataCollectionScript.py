@@ -11,8 +11,8 @@ departures_csv_title_columns = "Name, Start Date, Finish Date, Category"
 
 def get_endpoint_data(url):
     '''
-        Get all the departures on a single page returned when making a get request
-        to /departures/ endpoint.
+        Get all the json data returned when making a get request to the endpoint
+        specified by the url parameter.
     '''
     # In the event of a malformed response, I raise an error and prevent a superfluous
     # GET request.
