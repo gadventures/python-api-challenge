@@ -151,6 +151,10 @@ what you create.
 
 ## Applicant Response
 
-The first step to solving this problem was to insert the data in the included json file into the database. To do this, I wrote a two python functions to be called during migration that would open the file, format the data into database objects, and then insert teh objects in to the database with a single query.
+I wanted to approach these problems with a focus on a couple philosophies:
+1. The script should be readable, testable, and maintanable.
+2. Aiding in the above, the code should be as simple as possible.
 
-Second was the actual data collection script. I approached this attempting to write as straight forward a response as possible. It's a synchronous script that iterates over the pages returned by the /departures/ endpoint using a for loop. The number of pages to iterated is calculated using the count parameter. I considered using a while loop conditional on a none-null "next" url, however I decided that using a self-terminating loop was safer in the event of malformed data. Preserving this philosophy, I included a non-null "next" url requirement for each iteration of the loop, again in case of a malformed response. I separated the functionality into small component functions to aid in both readibility, and testability. When doing so didn't require too much of a time investment, I generalised the functionality for re-use.
+The first step to solving this problem was to insert the data in the included json file into the database. While this portion of the challenge is fairly straight forward, I separated the functionality into multiple functions to specialize components of the code.
+
+Second was the actual data collection script. In line with my above philosophies, I approached the challenge with an attempt to write as straightforward a response as possible. In accordance with this, the script is separated into as specialized functions that are generalized when doing so is straight forward. In addition to my initial philosophies, I decided that I wanted to ensure the script does not fail due to malformed data returned from the endpoint. On a really basic level, this is illustrated in the page iteration loop. I considered using a while loop conditional on a none-null "next" url for iterating the data pages, however I decided that using a self-terminating loop was safer. Preserving this philosophy, I included a non-null "next" url requirement for each iteration of the loop, again in case of a malformed response.
