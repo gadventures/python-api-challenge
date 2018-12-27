@@ -31,10 +31,14 @@ def get_departures():
     return results
 
 
+def convert_to_title_case(input_string):
+    temp = re.sub(r'_|-', " ", input_string)
+    return temp.title()
+
+
 def filter_departures(in_data):
     df = pd.DataFrame.from_dict(in_data)
     df['start_date'] = df['start_date'].astype('datetime64[ns]')
-    df = df[['name', 'start_date', 'finish_date', 'category']]
     filtered_df = df[(df.start_date > datetime.datetime(2018, 6, 1)) &
                      (df.category == "Adventurous")]
 
@@ -42,13 +46,7 @@ def filter_departures(in_data):
 
 
 def write_csv(data_frame):
-    data_frame.rename(columns={
-            'name': 'Name',
-            'start_date': 'Start Date',
-            'finish_date': 'Finish Date',
-            'category': 'Category'},
-        inplace=True)
-
+    data_frame.rename(columns=convert_to_title_case, inplace=True)
     data_frame.to_csv(CSV_FILENAME, index=False)
 
 
