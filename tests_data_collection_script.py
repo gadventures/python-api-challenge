@@ -1,6 +1,9 @@
 import unittest
 import data_collection_script as dc
 from datetime import datetime
+from unittest.mock import Mock
+from unittest.mock import patch
+import json
 
 
 class TestCollectionScript(unittest.TestCase):
@@ -65,6 +68,32 @@ class TestCollectionScript(unittest.TestCase):
         out_df = dc.filter_departures(input_data)
         assert(len(out_df) == 0)
 
+    @patch('data_collection_script.requests.get')
+    def tests_get_departures_single_get(self, mock_get):
+
+        mock_data = {        
+            "count": 150,
+            "next": None,
+            "previous": None,
+            "results": [
+                {
+                    "name": "New Zealand Safari",
+                    "start_date": "2018-04-03",
+                    "finish_date": "2018-04-13",
+                    "category": "Marine"
+                },
+                {
+                    "name": "New Zealand Encompassed",
+                    "start_date": "2018-08-31",
+                    "finish_date": "2018-09-10",
+                    "category": "Adventurous"
+                }]
+            }
+
+        mock_get.return_value.content = json.dumps(mock_data)
+
+        response = dc.get_departures()
+        assert(response == mock_data['results'])
 
 if __name__ == '__main__':
     unittest.main()
