@@ -1,5 +1,6 @@
 import unittest
 import data_collection_script as dc
+from datetime import datetime
 
 
 class TestCollectionScript(unittest.TestCase):
@@ -37,6 +38,11 @@ class TestCollectionScript(unittest.TestCase):
 
         out_df = dc.filter_departures(input_data)
         assert(len(out_df) == 1)
+        assert(out_df.iloc[0, 0] == input_data[1]['category'])
+        assert(out_df.iloc[0, 1] == input_data[1]['finish_date'])
+        assert(out_df.iloc[0, 2] == input_data[1]['name'])
+        assert(out_df.iloc[0, 3] ==
+               datetime.strptime(input_data[1]['start_date'], '%Y-%m-%d'))
 
     def test_filter_invalid_category(self):
         input_data = [{
