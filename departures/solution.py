@@ -61,3 +61,9 @@ def createCsv(departures):
             writer.writerow(departure)
 
 createCsv(filtered_departures)
+
+
+if __name__ == '_main_':
+    getDepartures
+    filterDepartures
+    createCsv
