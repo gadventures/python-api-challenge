@@ -10,7 +10,7 @@ def getDepartures(apps, schema_editor):
         Departure = apps.get_model("departures", "Departure")
         db_alias = schema_editor.connection.alias
         for departure in data:
-            departures = Departure.objects.using(db_alias).create(name=departure["name"], start_date=departure["start_date"], finish_date=departure["finish_date"], category=departure["category"])
+            Departure.objects.using(db_alias).create(name=departure["name"], start_date=departure["start_date"], finish_date=departure["finish_date"], category=departure["category"])
 
 
 class Migration(migrations.Migration):
