@@ -58,7 +58,7 @@ def createCsv(departures):
 
 
 ### https://stackoverflow.com/questions/419163/what-does-if-name-main-do
-if __name__ == '_main_':
+if __name__ == '__main__':
     departures = getDepartures([], url, headers)
     filtered_departures = filterDepartures(departures, datetime(2018, 6, 1), "Adventurous")
     createCsv(filtered_departures)
